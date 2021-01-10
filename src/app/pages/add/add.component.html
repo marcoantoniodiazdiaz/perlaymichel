@@ -1,0 +1,39 @@
+<div>
+    <div class="container" style="margin-top: 30px;">
+        <h1 class="text-center">Envio de información a Firebase</h1>
+        <h2 class="text-center">Integrantes:</h2>
+        <ul class="text-center">
+            <li>Perla Flores</li>
+            <li>Michel Ortiz</li>
+            <li>Fernanda Lopez</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <form (ngSubmit)="save(f)" #f="ngForm">
+            <label>No. Paciente</label>
+            <input type="number" class="form-control" name="numero" [(ngModel)]="numero" required>
+            <div class="row">
+                <div class="col-6">
+                    <label>Nombre(s):</label>
+                    <input type="text" class="form-control" name="nombres" [(ngModel)]="nombres" required>
+                </div>
+                <div class="col-6">
+                    <label>Apellido(s):</label>
+                    <input type="text" class="form-control" name="apellidos" [(ngModel)]="apellidos" required>
+                </div>
+            </div>
+            <label>Fecha de nacimiento</label>
+            <input type="date" class="form-control" name="fecha" [(ngModel)]="fecha" required>
+            <label>Telefono</label>
+            <input type="tel" class="form-control" name="telefono" [(ngModel)]="telefono" required>
+
+            <button class="btn btn-dark btn-lg" style="margin-top: 20px;" type="submit">
+                <div class="spinner-border text-light" role="status" *ngIf="isLoading">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div *ngIf="!isLoading">Guardar</div>
+            </button>
+        </form>
+    </div>
+</div>
